@@ -25,7 +25,6 @@ namespace lab1_dotnet_framework
         Main2
     }
 
-
     public partial class MainForm : Form
     {
         
@@ -38,8 +37,8 @@ namespace lab1_dotnet_framework
 
                 private Dictionary<Tuple<double, double, double>, List<Series>> SeriesForStartConditions = new Dictionary<Tuple<double, double, double>, List<Series>>();
 
-                private TaskType selectedTask = TaskType.Main1;
-                private string currentTableDB = "main1";
+                private TaskType selectedTask = TaskType.Main2;
+                private string currentTableDB = "main2";
 
                // private string bdFolder = "/database/lab1.sqlite3";
                // private string scriptFolder = "\\script"; 
@@ -135,7 +134,7 @@ namespace lab1_dotnet_framework
             dataGridView2.Columns["Делений"].Width = 95;
             dataGridView2.Columns["Удвоений"].Width = 95;
 
-            showStartConditions("main1");
+            showStartConditions(currentTableDB);
 
             textBox8.Enabled = false;
             textBox9.Enabled = false;
@@ -671,89 +670,6 @@ namespace lab1_dotnet_framework
             executeMethod();
         }
 
-        private void тестоваяToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            выборТипаЗадачиToolStripMenuItem.Text = "Тестовая";
-            selectedTask = TaskType.Test;
-            this.chart1.Series.Clear();
-            this.chart2.Series.Clear();
-            this.chart3.Series.Clear();
-
-            if (!table.Columns.Contains("u") && !table.Columns.Contains("|u-v|"))
-            {
-                table.Columns.Add("u", typeof(string));
-                table.Columns.Add("|u-v|", typeof(string));
-
-                dataGridView1.Columns["|u-v|"].Width = 200;
-            }
-
-            table.Rows.Clear();
-
-            showStartConditions("test");
-
-            currentTableDB = "test";
-
-            table.Rows.Clear();
-
-            textBox8.Enabled = false;
-            textBox9.Enabled = false;
-            textBox10.Enabled = false;
-            textBox11.Enabled = false;
-        }
-
-        private void основнаяToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            выборТипаЗадачиToolStripMenuItem.Text = "Основная 1";
-            selectedTask = TaskType.Main1;
-            this.chart1.Series.Clear();
-            this.chart2.Series.Clear();
-            this.chart3.Series.Clear();
-
-            if (table.Columns.Contains("u") && table.Columns.Contains("|u-v|"))
-            {
-                table.Columns.Remove("u");
-                table.Columns.Remove("|u-v|");
-            }
-
-
-            table.Rows.Clear();
-
-            showStartConditions("main1");
-
-            currentTableDB = "main1";
-
-            textBox8.Enabled = false;
-            textBox9.Enabled = false;
-            textBox10.Enabled = false;
-            textBox11.Enabled = false;
-        }
-        private void основная2ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            выборТипаЗадачиToolStripMenuItem.Text = "Основная 2";
-            selectedTask = TaskType.Main2;
-            this.chart1.Series.Clear();
-            this.chart2.Series.Clear();
-            this.chart3.Series.Clear();
-
-            if (table.Columns.Contains("u") && table.Columns.Contains("|u-v|"))
-            {
-                table.Columns.Remove("u");
-                table.Columns.Remove("|u-v|");
-            }
-
-
-            table.Rows.Clear();
-
-            showStartConditions("main2");
-
-            currentTableDB = "main2";
-
-            textBox8.Enabled = true;
-            textBox9.Enabled = true;
-            textBox10.Enabled = true;
-            textBox11.Enabled = true;
-        }
-
         private void comboBox1_SelectionChangeCommitted(object sender, EventArgs e)
         {
             List<string> selectedCondition = stringConditionToList(comboBox1.GetItemText(comboBox1.SelectedItem));
@@ -776,6 +692,10 @@ namespace lab1_dotnet_framework
             if (selectedTask == TaskType.Main2) {
                 richTextBox1.Text += "\nДля производной:\n" + getInfo(table2, cntrl, true); 
             }
+        }
+
+        private void dsaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
         }
     }
 }
