@@ -136,24 +136,29 @@ namespace lab1_dotnet_framework
 
             showStartConditions(currentTableDB);
 
-            textBox8.Enabled = false;
+            /*textBox8.Enabled = false;
             textBox9.Enabled = false;
-            textBox10.Enabled = false;
+            textBox10.Enabled = false;*/
+        }
+
+        private string replacePI(string s)
+        {
+            return s.Replace("pi", "3,14159265359");
         }
 
         private int catchParams(ref double X0, ref double U0, ref double U0der, ref double startStep, ref double localPrecision, ref double boundPrecision, ref double integrationBound, ref int maxStepNumbers, ref bool withControl, ref double a, ref double b, ref double c)
         {
-            string x0Text = pointsToCommas(textBox1.Text);
-            string u0Text = pointsToCommas(textBox2.Text);
-            string startStepText = pointsToCommas(textBox3.Text);
-            string localPrecisionText = pointsToCommas(textBox4.Text);
-            string boundPrecisionText = pointsToCommas(textBox5.Text);
+            string x0Text = replacePI(pointsToCommas(textBox1.Text));
+            string u0Text = replacePI(pointsToCommas(textBox2.Text));
+            string startStepText = replacePI(pointsToCommas(textBox3.Text));
+            string localPrecisionText = replacePI(pointsToCommas(textBox4.Text));
+            string boundPrecisionText = replacePI(pointsToCommas(textBox5.Text));
             string maxStepNumbersText = pointsToCommas(textBox6.Text);
-            string integrationBoundText = pointsToCommas(textBox7.Text);
-            string aText = pointsToCommas(textBox8.Text);
-            string bText = pointsToCommas(textBox9.Text);
-            string cText = pointsToCommas(textBox10.Text);
-            string u0derText = pointsToCommas(textBox11.Text);
+            string integrationBoundText = replacePI(pointsToCommas(textBox7.Text));
+            string aText = replacePI(pointsToCommas(textBox8.Text));
+            string bText = replacePI(pointsToCommas(textBox9.Text));
+            string cText = replacePI(pointsToCommas(textBox10.Text));
+            string u0derText = replacePI(pointsToCommas(textBox11.Text));
 
             if (x0Text.Length == 0 || u0Text.Length == 0 ||
                 startStepText.Length == 0 || localPrecisionText.Length == 0 ||
