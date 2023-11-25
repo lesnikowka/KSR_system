@@ -701,6 +701,7 @@ namespace lab1_dotnet_framework
 
         private void dsaToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            (new Help()).Show();
         }
     }
 }
