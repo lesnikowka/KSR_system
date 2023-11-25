@@ -55,10 +55,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -295,18 +293,6 @@
             this.checkBox1.Text = "Контроль ЛП";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.comboBox1.Location = new System.Drawing.Point(455, 54);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(269, 24);
-            this.comboBox1.TabIndex = 22;
-            this.comboBox1.SelectionChangeCommitted += new System.EventHandler(this.comboBox1_SelectionChangeCommitted);
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -328,15 +314,6 @@
             this.richTextBox1.TabIndex = 24;
             this.richTextBox1.Text = "";
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(387, 54);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(48, 16);
-            this.label10.TabIndex = 25;
-            this.label10.Text = "X0, U0:";
-            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
@@ -344,11 +321,11 @@
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Location = new System.Drawing.Point(387, 92);
+            this.tabControl1.Location = new System.Drawing.Point(387, 54);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1500, 866);
+            this.tabControl1.Size = new System.Drawing.Size(1500, 904);
             this.tabControl1.TabIndex = 26;
             // 
             // tabPage1
@@ -358,7 +335,7 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage1.Size = new System.Drawing.Size(1492, 837);
+            this.tabPage1.Size = new System.Drawing.Size(1492, 875);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "График решения";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -548,10 +525,8 @@
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.label10);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.label8);
@@ -618,10 +593,8 @@
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.ToolStripMenuItem dsaToolStripMenuItem;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;

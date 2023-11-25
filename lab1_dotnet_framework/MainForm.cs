@@ -134,8 +134,6 @@ namespace lab1_dotnet_framework
             dataGridView2.Columns["Делений"].Width = 95;
             dataGridView2.Columns["Удвоений"].Width = 95;
 
-            showStartConditions(currentTableDB);
-
             /*textBox8.Enabled = false;
             textBox9.Enabled = false;
             textBox10.Enabled = false;*/
@@ -263,8 +261,6 @@ namespace lab1_dotnet_framework
             ShowDataForStartCondition(doubleConditionsToList(X0, U0, U0der));
 
             drawGraphs(doubleConditionsToList(X0, U0, U0der));
-
-            showStartConditions(tableName);
 
             int cntrl = checkBox1.Checked ? 1 : 0;
 
@@ -402,32 +398,6 @@ namespace lab1_dotnet_framework
         private double stringToDouble(string s)
         {
             return Convert.ToDouble(s.Replace(".", ","));
-        }
-
-        private void showStartConditions(string tableName)
-        {
-            comboBox1.Items.Clear();
-
-            List<List<string>> startConditions = null;
-
-            try
-            {
-                startConditions = db.GetAllStartConditions(tableName);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                this.Close();
-            }
-
-
-            for (int i = 0; i < startConditions.Count; i++)
-            {
-                if (tableName != "main2")
-                    comboBox1.Items.Add(startConditions[i][0] + ", " + startConditions[i][1]);
-                else
-                    comboBox1.Items.Add(startConditions[i][0] + ", " + startConditions[i][1] + ", " + startConditions[i][2]);
-            }
         }
 
         private double constant(double x0, double v0)
@@ -673,30 +643,6 @@ namespace lab1_dotnet_framework
         private void button2_Click(object sender, EventArgs e)
         {
             executeMethod();
-        }
-
-        private void comboBox1_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            List<string> selectedCondition = stringConditionToList(comboBox1.GetItemText(comboBox1.SelectedItem));
-
-            if (selectedCondition.Count == 2)
-            {
-                selectedCondition.Add("0.0");
-            }
-
-            ShowDataForStartCondition(selectedCondition);
-
-            drawGraphs(selectedCondition);
-
-            showParameters(selectedCondition);
-
-            bool cntrl = checkBox1.Checked;
-
-            richTextBox1.Text = getInfo(table, cntrl);
-
-            if (selectedTask == TaskType.Main2) {
-                richTextBox1.Text += "\nДля производной:\n" + getInfo(table2, cntrl, true); 
-            }
         }
 
         private void dsaToolStripMenuItem_Click(object sender, EventArgs e)
