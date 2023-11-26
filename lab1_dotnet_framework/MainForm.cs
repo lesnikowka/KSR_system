@@ -593,13 +593,8 @@ namespace lab1_dotnet_framework
             if(cntrl) resultInfo += "Макс. ОЛП = " + maxOlp.ToString() + "\n";
             if (!onlyOlp) if (cntrl) resultInfo += "Удвоений: " + C2sum.ToString() + "\n";
             if (!onlyOlp) if (cntrl) resultInfo += "Делений: " + C1sum.ToString() + "\n";
-            if (!onlyOlp) if (cntrl) resultInfo += "Минимальный шаг: " + minHi.ToString() + " при x = " + minHiXi.ToString() + "\n";
-            if (!onlyOlp) if (cntrl) resultInfo += "Максимальный шаг: " + maxHi.ToString() + " при x = " + maxHiXi.ToString() + "\n";
-            
-            if (selectedTask == TaskType.Test)
-            {
-                resultInfo += "Максимальный ui - vi: " + maxuivi.ToString() + " при x = " + maxuiviXi.ToString() + "\n";
-            }
+            if (!onlyOlp) if (cntrl) resultInfo += "Минимальный шаг: " + minHi.ToString() + " при x = " + curTable.Rows[minHiXi][1] + "\n";
+            if (!onlyOlp) if (cntrl) resultInfo += "Максимальный шаг: " + maxHi.ToString() + " при x = " + curTable.Rows[maxHiXi][1] + "\n";
 
             return resultInfo;
         }

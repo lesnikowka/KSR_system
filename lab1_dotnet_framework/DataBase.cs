@@ -56,6 +56,8 @@ namespace lab1_dotnet_framework
 
         private SqliteConnection GetConnection()
         {
+            string s = Directory.GetCurrentDirectory();
+
             string connectionString = "Data Source=" + Directory.GetCurrentDirectory() + BaseDirectory;
 
             SqliteConnection connection = null;

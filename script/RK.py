@@ -126,10 +126,10 @@ def saveToDatabase():
                                      hi[i], C2i[i], C1i[i], v0der]])
         else:
             cursor.executemany("insert into main2 values(?,?,?,?,?,?,?,?,?,?,?,?,?)",
-                                   [[u2[i], x0, v0, i + 1, xi[i], u1[i], 0, 0, olp[i],
+                                   [[u2[i], x0, v0, i + 1, xi[i], u1[i], v2i[i], cntrl[i], olp[i],
                                      h, 0, 0, v0der]])
             cursor.executemany("insert into main2der values(?,?,?,?,?,?,?,?,?,?,?,?,?)",
-                                   [[u2[i], x0, v0, i + 1, xi[i], u2[i], 0, 0, olp2[i],
+                                   [[u2[i], x0, v0, i + 1, xi[i], u2[i], v22i[i], cntrl2[i], olp2[i],
                                      h, 0, 0, v0der]])
 
     connection.commit()
@@ -185,14 +185,19 @@ def stepForSystem(x, v1, v2, h, f1, f2, withControl=False):
         u2.append(vn2)
         
         xn, vn1, vn2 = stepForSystem(x, v1, v2, h, f1, f2, True)
-        xHalf, v1Half, v2Half = stepForSystem(x, v1, v2, h, f1, f2, True)
-        xNext, v1Next, v2Next = stepForSystem(x, v1Half, v2Half, h, f1, f2, True)
+        xHalf, v1Half, v2Half = stepForSystem(x, v1, v2, h / 2, f1, f2, True)
+        xNext, v1Next, v2Next = stepForSystem(x, v1Half, v2Half, h / 2, f1, f2, True)
 
         S1 = (v1Next - vn1) / (2 ** p - 1)
         S2 = (v2Next - vn2) / (2 ** p - 1)
 
         olp.append(abs(S1))
         olp2.append(abs(S2))
+        cntrl.append(abs(vn1-v1Next))
+        cntrl2.append(abs(vn2-v2Next))
+        v2i.append(v1Next)
+        v22i.append(v2Next)
+
     return xn, vn1, vn2
 
 
@@ -201,8 +206,8 @@ def stepForSystem(x, v1, v2, h, f1, f2, withControl=False):
 def stepForSystemWithControl(x, v1, v2, h, f1, f2, eps):
     global C1, C2
     xn, vn1, vn2 = stepForSystem(x, v1, v2, h, f1, f2, True)
-    xHalf, v1Half, v2Half = stepForSystem(x, v1, v2, h, f1, f2, True)
-    xNext, v1Next, v2Next = stepForSystem(x, v1Half, v2Half, h, f1, f2, True)
+    xHalf, v1Half, v2Half = stepForSystem(x, v1, v2, h / 2, f1, f2, True)
+    xNext, v1Next, v2Next = stepForSystem(x, v1Half, v2Half, h / 2, f1, f2, True)
 
     S1 = (v1Next - vn1) / (2 ** p - 1)
     S2 = (v2Next - vn2) / (2 ** p - 1)
@@ -226,8 +231,8 @@ def stepForSystemWithControl(x, v1, v2, h, f1, f2, eps):
             C2 += 1
             h /= 2
             xn, vn1, vn2 = stepForSystem(x, v1, v2, h, f1, f2, True)
-            xHalf, v1Half, v2Half = stepForSystem(x, v1, v2, h, f1, f2, True)
-            xNext, v1Next, v2Next = stepForSystem(x, v1Half, v2Half, h, f1, f2, True)
+            xHalf, v1Half, v2Half = stepForSystem(x, v1, v2, h / 2, f1, f2, True)
+            xNext, v1Next, v2Next = stepForSystem(x, v1Half, v2Half, h / 2, f1, f2, True)
             S1 = (v1Next - vn1) / (2 ** p - 1)
             S2 = (v2Next - vn2) / (2 ** p - 1)
             S = max(abs(S1), abs(S2))
@@ -247,8 +252,8 @@ def RK4Sys(x, v1, v2, h, Nmax, b, e, f1, f2):
 
     for i in range(1, Nmax + 1):
         x, v1, v2 = stepForSystem(x, v1, v2, h, f1, f2)
-        xHalf, v1Half, v2Half = stepForSystem(x, v1, v2, h, f1, f2, True)
-        xNext, v1Next, v2Next = stepForSystem(x, v1Half, v2Half, h, f1, f2, True)
+        xHalf, v1Half, v2Half = stepForSystem(x, v1, v2, h / 2, f1, f2, True)
+        xNext, v1Next, v2Next = stepForSystem(x, v1Half, v2Half, h / 2, f1, f2, True)
 
         S1 = (v1Next - v1) / (2 ** p - 1)
         S2 = (v2Next - v2) / (2 ** p - 1)
