@@ -60,21 +60,21 @@ namespace lab1_dotnet_framework
             chart2.ChartAreas[0].AxisX.LabelStyle.Format = "0.00001";
             chart3.ChartAreas[0].AxisX.LabelStyle.Format = "0.00001";
 
-            chart1.ChartAreas[0].AxisX.Title = "X";
-            chart1.ChartAreas[0].AxisY.Title = "U";
+            chart1.ChartAreas[0].AxisX.Title = "X - время";
+            chart1.ChartAreas[0].AxisY.Title = "U - угол отклонения";
 
             chart1.ChartAreas[0].AxisX.TitleFont = new Font("Arial", 14);
             chart1.ChartAreas[0].AxisY.TitleFont = new Font("Arial", 14);
 
 
-            chart3.ChartAreas[0].AxisX.Title = "X";
-            chart3.ChartAreas[0].AxisY.Title = "U'";
+            chart3.ChartAreas[0].AxisX.Title = "X - время";
+            chart3.ChartAreas[0].AxisY.Title = "U' - угловая скорость";
 
             chart2.ChartAreas[0].AxisX.TitleFont = new Font("Arial", 14);
             chart2.ChartAreas[0].AxisY.TitleFont = new Font("Arial", 14);
 
-            chart2.ChartAreas[0].AxisX.Title = "U";
-            chart2.ChartAreas[0].AxisY.Title = "U'";
+            chart2.ChartAreas[0].AxisX.Title = "U - угол отклонения";
+            chart2.ChartAreas[0].AxisY.Title = "U' - угловая скорость";
 
             chart3.ChartAreas[0].AxisX.TitleFont = new Font("Arial", 14);
             chart3.ChartAreas[0].AxisY.TitleFont = new Font("Arial", 14);
