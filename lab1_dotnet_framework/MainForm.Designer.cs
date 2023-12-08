@@ -347,7 +347,7 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Size = new System.Drawing.Size(1492, 837);
+            this.tabPage2.Size = new System.Drawing.Size(1492, 875);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Таблица";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -370,7 +370,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1492, 837);
+            this.tabPage3.Size = new System.Drawing.Size(1492, 875);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Фазовый портрет";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -396,7 +396,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
             this.tabPage4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1492, 837);
+            this.tabPage4.Size = new System.Drawing.Size(1492, 875);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "График первой производной";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -422,7 +422,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 25);
             this.tabPage5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(1492, 837);
+            this.tabPage5.Size = new System.Drawing.Size(1492, 875);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Таблица для производной";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -550,7 +550,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainForm";
-            this.Text = "PK";
+            this.Text = "Афиногенов 3821Б1ПМОП3";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.menuStrip1.ResumeLayout(false);

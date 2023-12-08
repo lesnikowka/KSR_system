@@ -118,18 +118,18 @@ def saveToDatabase():
     for i in range(len(xi)):
         if WC:
             cursor.executemany("insert into main2 values(?,?,?,?,?,?,?,?,?,?,?,?,?)",
-                                  [[u2[i], x0, v0, i + 1, xi[i], u1[i], v2i[i], cntrl[i], olp[i],
+                                  [[u2[i], x0, v0, i, xi[i], u1[i], v2i[i], cntrl[i], olp[i],
                                     hi[i], C2i[i], C1i[i], v0der]])
 
             cursor.executemany("insert into main2der values(?,?,?,?,?,?,?,?,?,?,?,?,?)",
-                                   [[u2[i], x0, v0, i + 1, xi[i], u2[i], v22i[i], cntrl2[i], olp2[i],
+                                   [[u2[i], x0, v0, i, xi[i], u2[i], v22i[i], cntrl2[i], olp2[i],
                                      hi[i], C2i[i], C1i[i], v0der]])
         else:
             cursor.executemany("insert into main2 values(?,?,?,?,?,?,?,?,?,?,?,?,?)",
-                                   [[u2[i], x0, v0, i + 1, xi[i], u1[i], v2i[i], cntrl[i], olp[i],
+                                   [[u2[i], x0, v0, i, xi[i], u1[i], v2i[i], cntrl[i], olp[i],
                                      h, 0, 0, v0der]])
             cursor.executemany("insert into main2der values(?,?,?,?,?,?,?,?,?,?,?,?,?)",
-                                   [[u2[i], x0, v0, i + 1, xi[i], u2[i], v22i[i], cntrl2[i], olp2[i],
+                                   [[u2[i], x0, v0, i, xi[i], u2[i], v22i[i], cntrl2[i], olp2[i],
                                      h, 0, 0, v0der]])
 
     connection.commit()
@@ -242,6 +242,8 @@ def stepForSystemWithControl(x, v1, v2, h, f1, f2, eps):
 
 
 def RK4Sys(x, v1, v2, h, Nmax, b, e, f1, f2):
+    saveCurrentValuesSystem(0, 0, x, v1, v2, h, v1, v2, 0, 0, 0, 0)
+
     xArr = []
     v1Arr = []
     v2Arr = []
@@ -291,6 +293,8 @@ def RK4Sys(x, v1, v2, h, Nmax, b, e, f1, f2):
 
 
 def RK4WCSys(x, v1, v2, h, Nmax, b, e, f1, f2, eps):
+    saveCurrentValuesSystem(0, 0, x, v1, v2, h, v1, v2, 0, 0, 0, 0)
+
     xArr = []
     v1Arr = []
     v2Arr = []
